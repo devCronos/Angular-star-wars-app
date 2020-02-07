@@ -1,0 +1,9 @@
+<div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let tab of tabs" routerLinkActive="active" >
+      <a class="nav-link" [routerLink]="'/characters/'+tab" >{{tab}}</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+  <!-- <app-list [characters]="getCharacters()" ></app-list> -->
+</div>

@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm" >
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <label for="name">Character name</label>
+      <input type="text" id="name" name="name" class="form-control"
+      [ngModel]="defaultName"
+      required
+      #nameCtrl="ngModel" >
+      <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched" >Please enter a name.</span>
+    </div>
+    <div class="form-group col-sm-4">
+      <label for="side">Choose side</label>
+      <select name="side" id="side" class="form-control" ngModel required>
+        <option *ngFor="let option of tabs" [value]=option>{{option}}</option>
+      </select>
+    </div>
+    <div class="form-group col-sm-4">
+        <label>&nbsp;</label>
+      <button class="btn btn-primary form-control" type="submit" [disabled]="form.invalid" >Add Character</button>
+    </div>
+  </div>
+</form>
